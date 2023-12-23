@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  rel?: string;
+  isExternal?: boolean;
+  class?: string;
+}
+
+const {href, rel = '', isExternal, class: classList}: Props = Astro.props;
+---
+
+<a href={href} class:list={['hover:text-blue-500', classList]} rel={`${rel}${isExternal ? ' nofollow noopener norefferer external' : ''}`}>
+  <slot/>
+</a>

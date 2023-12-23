@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import myBlogPhoto from '../assets/blackholeAI.png';
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout seo={{ title:"About", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit." }}>
+  <div class='flex flex-col items-center gap-8 mx-auto mt-12'>
+    <Image src={myBlogPhoto} width={512} quality="max" class="rounded-full w-64" alt="A photo of my blog"/>
+    <p class='mt-2 flex-1 leading-7'>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam ab repellendus totam nihil dolorem veritatis culpa earum accusantium nisi omnis non sed incidunt, eligendi, optio eum. Expedita quibusdam incidunt sed harum quisquam esse deserunt. Repudiandae cupiditate odit, facilis adipisci quam asperiores exercitationem odio dolorem et nisi sint, sunt debitis laboriosam.
+    </p>
+  </div>
+</Layout>
