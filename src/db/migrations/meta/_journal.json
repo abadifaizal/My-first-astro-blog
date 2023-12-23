@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1703321489240,
+      "tag": "0000_lean_madelyne_pryor",
+      "breakpoints": true
+    }
+  ]
+}
