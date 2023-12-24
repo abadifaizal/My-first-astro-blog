@@ -33,5 +33,10 @@ export default defineConfig({
   output: "hybrid",
   adapter: node({
     mode: "standalone"
-  })
+  }),
+  vite: {
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"]
+    }
+  }
 });

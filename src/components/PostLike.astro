@@ -1,35 +1,55 @@
 ---
 interface Props {
-  slug: string
+  slug: string;
 }
 
 const { slug } = Astro.props;
 ---
 
 <div>
-  <button id="like" data-slug={slug} class="px-3 py-1 rounded-md bg-blue-500 text-white">
+  <button
+    id="like"
+    data-slug={slug}
+    class="px-3 py-1 rounded-md bg-blue-500 text-white">
     Like
   </button>
   <p>Likes: <span id="num-likes">0</span></p>
 </div>
 
 <script>
-  const likeButton = document.getElementById('like')
-  const numLikes = document.getElementById('num-likes')
-  const slug = likeButton?.dataset.slug
+  const likeButton = document.getElementById("like");
+  const numLikes = document.getElementById("num-likes");
+  const slug = likeButton?.dataset.slug;
 
-  likeButton?.addEventListener('click', () => hitLike())
+  likeButton?.addEventListener("click", () => hitLike());
 
   function hitLike() {
-    fetch(`/api/like/${slug}`, { method: 'POST' })
-      .then(res => res.json())
-      .then(data => {
-        if(!!numLikes) {
-          numLikes.innerText = data.likes
+    fetch(`/api/likes/${slug}`, { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!!numLikes) {
+          numLikes.innerText = data.likes;
         }
       })
-      .catch(err => {
-        alert('Something went wrong')
-      })
+      .catch((err) => {
+        alert("Something went wrong");
+      });
   }
+
+  function refreshLikes() {
+    fetch(`/api/likes/${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!!numLikes) {
+          numLikes.innerText = data.likes;
+        }
+      })
+      .catch((err) => {
+        if (!!numLikes) {
+          numLikes.innerText = "0";
+        }
+      });
+  }
+
+  refreshLikes();
 </script>
