@@ -1,30 +1,38 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-import '../styles/index.css';
-import Layout from '../layouts/Layout.astro';
-import Link from '../components/Link.astro';
+import "../styles/index.css";
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
 
-
-const posts = await getCollection('blog');
+const posts = await getCollection("blog");
 ---
 
-<Layout seo={{ title:"Hello Astro" }}>
-	<div class='h-64 flex flex-col justify-center items-start'>
-		<h1 class="text-heading-1">Hello, I'm blackhole.</h1>
-    <p class="mt-2">I'm Developer Advocate and Software Engineer. I like writing code and mentoring</p>
-	</div>
+<Layout seo={{ title: "Hello Astro" }}>
+  <div class="h-64 flex flex-col justify-center items-start">
+    <h1 class="text-heading-1">Hello, I'm blackhole. !!</h1>
+    <p class="mt-2">
+      I'm Developer Advocate and Software Engineer. I like writing
+      code and mentoring
+    </p>
+  </div>
   <div class="flex flex-col">
     <h2 class="text-2xl font-semibold">Recent blog posts:</h2>
     <ol>
-      {posts.map(post => (
-        <li>
-          <Link href={`/blog/${post.slug}`} class="flex justify-between">
-            {post.data.title}
-            <span class="text-grey-400">{post.data.date.toUTCString().slice(0, -13)}</span>
-          </Link>
-        </li>
-      ))}
+      {
+        posts.map((post) => (
+          <li>
+            <Link
+              href={`/blog/${post.slug}`}
+              class="flex justify-between">
+              {post.data.title}
+              <span class="text-grey-400">
+                {post.data.date.toUTCString().slice(0, -13)}
+              </span>
+            </Link>
+          </li>
+        ))
+      }
     </ol>
   </div>
 </Layout>

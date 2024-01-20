@@ -48,7 +48,7 @@ const ogImageUrl = `${Astro.url.origin}/og/${
     <div class="flex justify-between items-center py-4">
       <header>
         <a href="/" class="font-bold text-2xl hover:text-blue-500"
-          >Egghead ❤️ Astro</a
+          >My first astro blog</a
         >
       </header>
       <nav>
@@ -58,7 +58,7 @@ const ogImageUrl = `${Astro.url.origin}/og/${
           <li><Link href="/blog">Blog</Link></li>
           <li><Link href="/feed.xml">RSS</Link></li>
           <li>
-            <Link href="https://github.com/nikolovlazar" isExternal>
+            <Link href="https://github.com/abadifaizal" isExternal>
               GitHub
             </Link>
           </li>
@@ -69,7 +69,7 @@ const ogImageUrl = `${Astro.url.origin}/og/${
       <slot />
     </main>
     <footer class="w-full mx-auto text-center py-4">
-      <span>© {new Date().getFullYear()} Lazar Nikolov.</span>
+      <span>© {new Date().getFullYear()}</span>
     </footer>
     <style is:global>
       :root {
